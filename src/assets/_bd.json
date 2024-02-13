@@ -1,0 +1,20 @@
+{
+  "mumbers":[
+    {
+      "id":"123",
+      "cin":"255555252",
+      "name":"imene",
+      "cv":"https://www.cdc.gov/polio/stop/pdf/stop-cv-format.pdf",
+      "type":"enseignant ",
+      "createDate" :"12/15/2025"
+    },
+    {
+      "id":"12355",
+      "cin":"255555252",
+      "name":"ali",
+      "cv":"lien1",
+      "type":"enseignant2 ",
+      "createDate" :"12/15/2015"
+    }
+  ]
+}

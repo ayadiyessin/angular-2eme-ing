@@ -1,0 +1,41 @@
+<form [formGroup]="form" (ngSubmit)="onsub()" > <!--[formGroup] hethy bech nbath l contenue lkol ma bathou mta3 el formulaire
+                          FormsModule, ReactiveFormsModule, lezem tzidhom fi app.module
+                          -->
+                          <!-- (ngSubmit)="onsub()"  fonction submit bech nrecuperi les donnes  de le formulaire
+                            teb3a ll btn submite bech ne5thou les donnes mta el form
+                          -->
+  <p>
+    <mat-form-field appearance="fill">
+      <!-- <mat-label>cin</mat-label> -->
+      <input matInput placeholder="cin" formControlName="cin"> <!-- formControlName hetha kima l id bech ne5thou menou el contenue -->
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <!-- <mat-label>name</mat-label> -->
+      <input matInput placeholder="name" formControlName="name">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <!-- <mat-label>cv</mat-label> -->
+      <input matInput placeholder="cv" formControlName="cv">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <!-- <mat-label>type</mat-label> -->
+      <input matInput placeholder="type"  formControlName="type">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <button type="submit"> Submit</button>
+</form>
