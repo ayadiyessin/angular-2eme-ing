@@ -12,12 +12,17 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MemberComponent,
-    MemberFormComponent
+    MemberFormComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     //fin
     MatIconModule,
-    BrowserAnimationsModule
+    MatButtonModule,
+    BrowserAnimationsModule,
+    //hethy mta dialog
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,9 +11,9 @@ import { GLOBAL } from 'src/app/app-config';
 // service houwa classe
 export class MemberService {
   tab:Member[]=GLOBAL._DB.mumbers; // hethy ken froont
-  constructor(
-    private httpClient :HttpClient
-  ) { }
+  constructor( private httpClient :HttpClient){
+
+  }
   // creer une fonction OnSave qui gener le requette http
   OnSave(memberToSave:any): Observable<any> // return observable( thread) ( teba3 ll patron obdervable)
   {
@@ -38,9 +38,20 @@ export class MemberService {
     return new  Observable(observer=>observer.next())
 
   }
-  OnDelate(id:string):Observable<any>
+  OnDelate(id:string):Observable<any> // type de rotourn dima Observable
   {
-    return this.httpClient.delete('127.0.01:8080/api/Member/{id}');
+    //*************hetha kif yebda fama back end  ****************************/
+    //return this.httpClient.delete('127.0.01:8080/api/Member/$(id)');
 
+    /*********************houni ken fi front *********** */
+    this.tab=this.tab.filter(item=> item.id !== id);
+    return new  Observable(observer=>observer.next()) // kif n7eb nraja3 haja nraja3ha fi next
+  }
+
+  getMemberById(id:string):Observable<Member>
+  {
+    // return this.httpClient.get('127.0.01:8080/api/Member/${id}');
+    return new  Observable(observer=>observer.next(this.tab.filter(item=> item.id == id)[0] ?? null)) // si non  iraja3 ?? null
+    //this.tab.filter(item=> item.id == id) hethi traja3 tableau 
   }
 }
