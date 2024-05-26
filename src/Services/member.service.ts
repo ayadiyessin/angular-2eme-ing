@@ -30,7 +30,7 @@ export class MemberService {
 
     // ------------------------------ statique
     const member1={
-      ...memberToSave,
+      ...memberToSave, // bech ijib les donner mta member
       id:Math.ceil(Math.random()*1000), // bech sna3na zama zama id
       createDate: new Date().toISOString(),
     }
@@ -52,6 +52,25 @@ export class MemberService {
   {
     // return this.httpClient.get('127.0.01:8080/api/Member/${id}');
     return new  Observable(observer=>observer.next(this.tab.filter(item=> item.id == id)[0] ?? null)) // si non  iraja3 ?? null
-    //this.tab.filter(item=> item.id == id) hethi traja3 tableau 
+    //this.tab.filter(item=> item.id == id) hethi traja3 tableau
+  }
+  updateMember(idc: string , member : Member ) : Observable < any >
+  {
+    // ********* back
+    // return this.httpClient.put('127.0.01:8080/api/Member/${id}',member); //member hethy eli bech nbedel biaa  (fastAPI)
+    //fi friont
+    const index = this.tab.findIndex(item=> item.id == idc); // traja3li indx mte3ou
+    this.tab[index] ={
+
+      ...member, // bech ijib les donner mta member hethy ttsama extraction
+      id :idc,
+      createDate: new Date().toISOString(),
+    }
+    return new  Observable(observer=>observer.next())
+  }
+  GetAll():Observable<Member[]>
+  {
+    //envoyer une requete http vers jason server (GET)
+    return this.httpClient.get<Member[]>('http://localhost:3000/mumbers');
   }
 }

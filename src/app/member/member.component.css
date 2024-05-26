@@ -1,3 +1,10 @@
 table{
   width: 100%;
 }
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.btn_cre{
+  margin: right 30px;
+}

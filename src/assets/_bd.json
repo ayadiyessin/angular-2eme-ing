@@ -1,20 +1,96 @@
 {
-  "mumbers":[
+  "mumbers": [
     {
-      "id":"123",
-      "cin":"255555252",
-      "name":"imene",
-      "cv":"https://www.cdc.gov/polio/stop/pdf/stop-cv-format.pdf",
-      "type":"enseignant ",
-      "createDate" :"12/15/2025"
+      "id": "1235555",
+      "cin": "255555252",
+      "name": "imene",
+      "cv": "https://www.cdc.gov/polio/stop/pdf/stop-cv-format.pdf",
+      "type": "teacher",
+      "createDate": "12/15/2025",
+      "tab_pub":[{
+        "id": "1231",
+      "type": "pub",
+      "titre": "le pub de l'etat",
+      "date": "10/10/2024"
+      },{
+        "id": "14423",
+      "type": "pub",
+      "titre": "le pub de l'etat",
+      "date": "10/10/2024"
+      }],
+      "tab_evt":[{ "id": "55",
+      "titre": "5555",
+      "lieu": "55555",
+      "dateDebut": "2024-04-21T23:00:00.000Z",
+      "dateFin": "2024-04-26T23:00:00.000Z"}]
     },
     {
-      "id":"12355",
-      "cin":"255555252",
-      "name":"ali",
-      "cv":"lien1",
-      "type":"enseignant2 ",
-      "createDate" :"12/15/2015"
+      "id": "12355",
+      "cin": "255555252",
+      "name": "ali",
+      "cv": "lien1",
+      "type": "student",
+      "createDate": "12/15/2015",
+      "tab_pub":[{
+        "id": "1231",
+      "type": "pub",
+      "titre": "le pub de l'etat",
+      "date": "10/10/2024"
+      },{
+        "id": "14423",
+      "type": "pub",
+      "titre": "le pub de l'etat",
+      "date": "10/10/2024"
+      }],
+      "tab_evt":[{ "id": "55",
+      "titre": "5555",
+      "lieu": "55555",
+      "dateDebut": "2024-04-21T23:00:00.000Z",
+      "dateFin": "2024-04-26T23:00:00.000Z"}]
+    }
+  ],
+  "articles": [
+    {
+      "id": "1231",
+      "type": "pub",
+      "titre": "le pub de l'etat",
+      "date": "10/10/2024"
+    },
+    {
+      "id": "1234",
+      "type": "pub1",
+      "titre": "le pub1 de l'etat",
+      "date": "10/12/2024"
+    },
+    {
+      "id": "123994",
+      "type": "pub1",
+      "titre": "le pub1 de l'etat",
+      "date": "10/12/2024"
+    },
+    {
+      "id": "14423",
+      "type": "pub",
+      "titre": "le pub de l'etat",
+      "date": "10/10/2024"
+    },
+    {
+      "id": "111111234",
+      "type": "pub1",
+      "titre": "le pub1 de l'etat",
+      "date": "10/12/2024"
+    },
+    {
+      "id": "08c5"
+    }
+  ],
+  "Evt": [
+    {
+      "id": "55",
+      "titre": "5555",
+      "lieu": "55555",
+      "dateDebut": "2024-04-21T23:00:00.000Z",
+      "dateFin": "2024-04-26T23:00:00.000Z"
     }
   ]
 }

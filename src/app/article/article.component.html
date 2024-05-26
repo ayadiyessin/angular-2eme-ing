@@ -1,0 +1,65 @@
+<br>
+<div fxLayout="row" fxLayoutAlign="end center" classe="btn_cre" >
+  <!-- <button mat-raised-button color="primary" routerLink="/createArticle">Create new</button> hethy ki 5demna men8ir modal -->
+  <!-- mouch bech n5dmou bel routerLink="/createArticle"  5ater bech n5dmou bel model-->
+  <!-- avec modal  -->
+  <button mat-raised-button color="primary" (click)="openDialog()">Create new</button>
+  <!-- openDialog() lezem nktebha fi ts mta article.compo yani fi hethy  -->
+</div>
+
+<br>
+
+<div class="mat-elevation-z8">
+  <!--- filter recherche dans table -->
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input> <!-- #input tsakar el input -->
+</mat-form-field>
+<!-- fin recherche  -->
+  <table mat-table [dataSource]="datasource" matSort (matSortChange)="announceSortChange($event)">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef > ID </th> <!-- mat-sort-header hethy zedneha ll sort -->
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="titre">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> Titre </th>
+      <td mat-cell *matCellDef="let element"> {{element.titre}} </td>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.date |date:'short' }} </td> <!-- |date:'short' ista3melna pipe Date bech nriglou juste fi affichage mta date  "https://angular.io/api/common/DatePipe"-->
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+
+
+      <button (click)="openDialogEdit(element.id)"  mat-icon-button aria-label="btn edit ">
+        <mat-icon aria-hidden="false" aria-label="Example home icon"  fontIcon="edit"></mat-icon><!-- icon materal -->
+      </button>
+
+      <button (click)="delate(element.id)"  mat-icon-button aria-label="btn delate ">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" color="warn" fontIcon="delete"></mat-icon><!-- icon materal -->
+      </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

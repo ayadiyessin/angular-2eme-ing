@@ -1,0 +1,33 @@
+<form [formGroup]="form">
+  <p>
+      <mat-form-field appearance="fill">
+          <input matInput placeholder="type" formControlName="type">
+      </mat-form-field>
+  </p>
+  <p>
+      <mat-form-field appearance="fill">
+          <input matInput placeholder="titre" formControlName="titre"> <!--formControlName="titre" bech necuperi bihom fi ts -->
+      </mat-form-field>
+  </p>
+  <p>
+    <!-- <mat-form-field appearance="fill">
+        <input matInput placeholder="date" formControlName="date"> formControlName="titre" bech necuperi bihom fi ts
+         date lezem fard esem mta bd
+    </mat-form-field> -->
+    <mat-form-field>
+      <!-- date-->
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date"> <!--formControlName="date" nzidha wahdi -->
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle> <!-- lezem na3mel import mta date systeme fi app-module -->
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+</p>
+  <section>
+      <div class="example-button-row">
+        <button class="mat-raised-button"(click)="close()">Close</button>
+        <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+      </div>
+  </section>
+</form>

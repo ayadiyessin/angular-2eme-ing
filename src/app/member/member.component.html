@@ -1,3 +1,4 @@
+<!-- hethaa tab l 9dim negir material
 <p>member works!</p>
 <h1>{{ nom }}</h1>
 <table border="1px" >
@@ -11,8 +12,8 @@
 
   </thead>
   <tbody>
-    <tr *ngFor="let element of dataSource"> <!-- boucle for-->
-    <td>{{ element.id}}</td> <!--string interpolation-->
+    <tr *ngFor="let element of dataSource"> <!-- boucle for--
+    <td>{{ element.id}}</td> <!--string interpolation--
     <td>{{ element.cin}}</td>
     <td>{{ element.name}}</td>
     <td>{{ element.cv}}</td>
@@ -20,19 +21,26 @@
     <td>{{ element.createDate}}</td>
     </tr>
   </tbody>
-</table>
+</table> -->
 
 <!-- materail table -->
 <br>
-<div fxLayout="row" fxLayoutAlign="end center" >
-    <button routerLink="/create">Create new </button>
+<div fxLayout="row" fxLayoutAlign="end center" classe="btn_cre" >
+  <button mat-raised-button color="primary" routerLink="/create">Create new</button>
+
 </div>
 
 <br>
+
+<!--- filter recherche dans table -->
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input> <!-- #input tsakar el input -->
+</mat-form-field>
+<!-- fin recherche  -->
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"> <!-- mat-table yani tableau materaile
                                                                           dataSource hetha tableau eli bech naffichih
                                                                       -->
-
 
 
   <!-- Position Column =>  yt5edmou bel colone mouch bel ligne --> <!-- yani bel colone bel colone -->
@@ -75,13 +83,32 @@
    <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef> Action </th>
     <td mat-cell *matCellDef="let element">
-     <button routerLink="/{{element.id}}/edit" > <mat-icon aria-hidden="false" aria-label="Example home icon"  fontIcon="edit"></mat-icon> </button> <!-- icon materal -->
-    <button (click)="delate(element.id)"> <mat-icon aria-hidden="false" aria-label="Example home icon" color="warn" fontIcon="delete"></mat-icon> </button> <!-- icon materal -->
+
+
+    <button routerLink="/{{element.id}}/edit"  mat-icon-button aria-label="btn edit ">
+      <mat-icon aria-hidden="false" aria-label="Example home icon"  fontIcon="edit"></mat-icon><!-- icon materal -->
+    </button>
+
+    <button (click)="delate(element.id)"  mat-icon-button aria-label="btn delate ">
+        <!-- <button mat-raised-button color="primary" routerLink="/create">Create new</button> -->
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontSet="material-icons" fontIcon="delete">delete</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" (click)="view(element)">
+      <mat-icon>visibility</mat-icon>
+      
+    </button>
+
 
     </td>
   </ng-container>
 <!-- bech yamel parcoure kemel -->
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> <!-- columns: displayedColumns; definer fi ts par apeller de id -->
+
+
+  <!-- Row shown when there is no matching data. teb3a ll recherche  -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+  </tr>
 </table>
 

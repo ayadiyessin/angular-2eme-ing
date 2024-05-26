@@ -1,0 +1,39 @@
+<form [formGroup]="form">
+  <p>
+    <mat-form-field appearance="fill">
+        <input matInput placeholder="id" formControlName="id"> <!--formControlName="titre" bech necuperi bihom fi ts -->
+    </mat-form-field>
+</p>
+  <p>
+      <mat-form-field appearance="fill">
+          <input matInput placeholder="titre" formControlName="titre"> <!--formControlName="titre" bech necuperi bihom fi ts -->
+      </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+        <input matInput placeholder="lieu" formControlName="lieu">
+    </mat-form-field>
+</p>
+  <p>
+
+    <mat-form-field>
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [formGroup]="form" [rangePicker]="picker">
+        <input matStartDate formControlName="dateDebut" placeholder="Start date">
+        <input matEndDate formControlName="dateFin" placeholder="End date">
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+
+
+    </mat-form-field>
+
+</p>
+  <section>
+      <div class="example-button-row">
+        <button class="mat-raised-button"(click)="close()">Close</button>
+        <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+      </div>
+  </section>
+</form>

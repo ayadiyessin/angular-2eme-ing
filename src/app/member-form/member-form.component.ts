@@ -11,6 +11,7 @@ import { MemberService } from 'src/Services/member.service';
 })
 export class MemberFormComponent implements OnInit {
   form!:FormGroup // declaration de variable form => !  bech nkasti
+  idcourant !:string
   //ingection de dependance  dans le constructeur
   constructor(
      private MS:MemberService,
@@ -20,13 +21,13 @@ export class MemberFormComponent implements OnInit {
   ngOnInit():void {
     // bech ntastin est ce que a7na fi edit ou create bech na3raf chnafichi
       //1 recuperer l id de url
-    const idcourant = this.activatedRoute.snapshot.params['id']; // bech njib route mta page // snapshot image 3iha
-    console.log(idcourant);
+    this.idcourant = this.activatedRoute.snapshot.params['id']; // bech njib route mta page // snapshot image 3iha
+    console.log(this.idcourant);
       // 2 tester sur id 3andha valeur ou
-    if(!!idcourant) // !! trouli yani deferent de indefident  => lezmou ikoun existe w mahyech indefident
+    if(!!this.idcourant) // !! trouli yani deferent de indefident  => lezmou ikoun existe w mahyech indefident
     {
       // 3 si id existe => edit
-      this.MS.getMemberById(idcourant).subscribe((x)=>{ // appel ll getMemberById(id)
+      this.MS.getMemberById(this.idcourant).subscribe((x)=>{ // appel ll getMemberById(id)
        console.log(x);
        this.initForm1(x) ;// initForme1(m) bech t3abili les input
 
@@ -61,15 +62,25 @@ export class MemberFormComponent implements OnInit {
   }
   // fonction onsub bech nrecuperi les donnes  de le formulaire w ajout fi tab (bd)
   onsub():void {
-    console.log(this.form.value); // recuperer touts les varable
-    console.log(this.form.value.cin); // recuperer le contenue de cin
-    // appeler la fonction OnSave(this.form.value)
-    // du service MemberService  qui est injecte dans ce component
-    const MemberToService = this.form.value;
-    this.MS.OnSave(MemberToService).subscribe(()=>{
-      this.router.navigate(['/members']) // bech narja3 ll tableau bad l'ajout
-    }); // houni saret el post sayey
-    // composent dima jous le role de subscrible
+    // bech ntasi al route ya bech namel edit ou post
+    if(!!this.idcourant) { // bech na3mel el edit
+      this.MS.updateMember(this.idcourant,this.form.value).subscribe(()=>{
+        this.router.navigate(['/members']) // bech narja3 ll tableau bad yamel edit
+      });
+
+    }
+    else{
+      console.log(this.form.value); // recuperer touts les varable
+      console.log(this.form.value.cin); // recuperer le contenue de cin
+      // appeler la fonction OnSave(this.form.value)
+      // du service MemberService  qui est injecte dans ce component
+      const MemberToService = this.form.value;
+      this.MS.OnSave(MemberToService).subscribe(()=>{
+        this.router.navigate(['/members']) // bech narja3 ll tableau bad l'ajout
+      }); // houni saret el post sayey
+      // composent dima jous le role de subscrible
+    }
+
 
   }
 

@@ -1,0 +1,52 @@
+.mgCar {
+  margin-top: 30px;
+}
+.col1 {
+  /* background-color: aqua; /
+  margin-left: 50px;
+  height: 100px;
+  width: 175px;
+}
+
+.col2 {
+  / background-color:rgb(222, 33, 33); /
+  margin-left: 50px;
+  height: 100px;
+  width: 175px;
+}
+
+.col3 {
+  / background-color:rgb(167, 81, 98); /
+  margin-left: 50px;
+  height: 100px;
+  width: 175px;
+}
+
+.col4 {
+  / background-color:rgb(222, 116, 97); */
+  margin-left: 50px;
+  height: 100px;
+  width: 175px;
+}
+
+.tailLine {
+  height: 300px;
+}
+
+.gradient-custom {
+  background: #667eea;
+  background: -webkit-linear-gradient(
+    to right,
+    rgba(102, 126, 234, 0.5),
+    rgba(118, 75, 162, 0.5)
+  );
+  background: linear-gradient(
+    to right,
+    rgba(102, 126, 234, 0.5),
+    rgba(118, 75, 162, 0.5)
+  );
+}
+.marginCl {
+  margin-left: 10px;
+  margin-right: 10px;
+}

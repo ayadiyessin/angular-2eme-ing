@@ -1,0 +1,74 @@
+<div fxLayout="row" fxLayoutAlign="center cente"  >
+  <mat-card class="col1 marginCl gradient-custom">
+      <mat-card-header>
+          <div fxLayout="column" fxLayoutAlign="space-between center" >
+
+        <mat-card-title>Members</mat-card-title>
+        <mat-card-content>{{nb_member}}</mat-card-content>
+        </div>
+      </mat-card-header>
+  </mat-card>
+
+  <mat-card class="col2 marginCl gradient-custom">
+      <mat-card-header>
+          <div fxLayout="column" fxLayoutAlign="space-between center" >
+        <mat-card-title>Articles</mat-card-title>
+        <mat-card-content>{{nb_Articles}}</mat-card-content>
+        </div>
+      </mat-card-header>
+  </mat-card>
+
+  <mat-card class="col3 marginCl gradient-custom">
+      <mat-card-header>
+          <div fxLayout="column" fxLayoutAlign="space-between center" >
+        <mat-card-title>Events</mat-card-title>
+
+        <mat-card-content>{{nb_Events}}</mat-card-content>
+        </div>
+      </mat-card-header>
+  </mat-card>
+
+  <mat-card class="col4 marginCl gradient-custom" >
+      <mat-card-header>
+          <div fxLayout="column" fxLayoutAlign="space-between center" >
+        <mat-card-title>Tools</mat-card-title>
+
+        <mat-card-content>{{nb_Tools}}</mat-card-content>
+        </div>
+      </mat-card-header>
+  </mat-card>
+</div>
+<br>
+<div fxLayout="row" fxLayoutAlign="center stretch"  >
+<div class="chart-wrapper marginCl">
+  <canvas class="tailLine" baseChart
+          [type]="'line'"
+    [datasets]="chartData"
+    [labels]="chartLabels"
+    [options]="chartOptions"
+    >
+  </canvas>
+</div>
+<div class="chart-wrapper marginCl">
+  <canvas class="tailLine" baseChart
+          [type]="'pie'"
+    [datasets]="chartDatapie"
+    [labels]="chartLabelspie"
+    [options]="chartOptions"
+    >
+  </canvas>
+</div>
+
+</div>
+<div fxLayout="row" fxLayoutAlign="center stretch"  >
+  <div class="chart-wrapper">
+    <canvas class="tailLine" baseChart
+            [type]="'bar'"
+      [datasets]="chartDatabar"
+      [labels]="chartLabelsbar"
+      [options]="chartOptions"
+      >
+    </canvas>
+  </div>
+
+</div>
